@@ -1,0 +1,4 @@
+# Dynamic folder – one per Pipeline Step task assigned to this Shot.
+# Folder name comes from the step short_name (e.g. comp, light, anim)
+type: "shotgun_step"
+name: "short_name"
