@@ -1,0 +1,10 @@
+# Flow Production Tracking Toolkit configuration file
+# This file was automatically created by setup_project
+# This file reflects the paths in the primary pipeline
+# configuration defined for this project.
+
+Windows: 'C:\Volumes\atv-post-lucid3\atv-buffalo-s03\buffalo_vfx\buffalo_flow_config'
+Darwin: '/Volumes/atv-post-lucid3/atv-buffalo-s03/buffalo_vfx/buffalo_flow_config'
+Linux: ''
+
+# End of file.
