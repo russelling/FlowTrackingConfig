@@ -1,0 +1,135 @@
+# =============================================================================
+# env/includes/settings/tk-nuke-episodic.yml
+# Nuke engine settings for the episodic shot_step context.
+# Included only by env/episode_shot_step.yml.
+# All template references use the ep_ prefix from core/templates.yml.
+# =============================================================================
+
+includes:
+- ../app_locations.yml
+- ../engine_locations.yml
+- ./tk-multi-breakdown.yml
+- ./tk-multi-breakdown2.yml
+- ./tk-multi-loader2.yml
+- ./tk-multi-publish2.yml
+- ./tk-multi-reviewsubmission.yml
+- ./tk-multi-snapshot.yml
+
+settings.tk-nuke.episodic.shot_step:
+  apps:
+
+    tk-multi-about:
+      location: "@apps.tk-multi-about.location"
+
+    tk-multi-setframerange:
+      location: "@apps.tk-multi-setframerange.location"
+
+    tk-multi-breakdown:
+      display_name: "Legacy Breakdown"
+      location: "@apps.tk-multi-breakdown.location"
+
+    tk-multi-breakdown2: "@settings.tk-multi-breakdown2.nuke"
+    tk-multi-loader2: "@settings.tk-multi-loader2.nuke"
+
+    tk-multi-publish2:
+      collector: "{self}/collector.py:{engine}/tk-multi-publish2/basic/collector.py"
+      collector_settings:
+          Work Template: ep_nuke_shot_work
+      publish_plugins:
+      - name: Publish to Flow Production Tracking
+        hook: "{self}/publish_file.py"
+        settings: {}
+      - name: Upload for review
+        hook: "{self}/upload_version.py"
+        settings: {}
+      - name: Begin file versioning
+        hook: "{engine}/tk-multi-publish2/basic/nuke_start_version_control.py"
+        settings: {}
+      - name: Publish to Flow Production Tracking
+        hook: "{self}/publish_file.py:{engine}/tk-multi-publish2/basic/nuke_publish_script.py"
+        settings:
+            Publish Template: ep_nuke_shot_publish
+      - name: Submit for Review
+        hook: "{engine}/tk-multi-publish2/basic/submit_for_review.py"
+        settings: {}
+      location: "@apps.tk-multi-publish2.location"
+
+    tk-multi-reviewsubmission: "@settings.tk-multi-reviewsubmission.nuke.shot"
+
+    tk-multi-snapshot:
+      template_snapshot: ep_nuke_shot_snapshot
+      template_work:     ep_nuke_shot_work
+      location: "@apps.tk-multi-snapshot.location"
+
+    tk-multi-workfiles2:
+      hook_scene_operation: "{config}/scene_operation_tk-nuke.py"
+      hook_filter_work_files: default
+      hook_filter_publishes: default
+      launch_at_startup: true
+      saveas_default_name: scene
+      saveas_prefer_version_up: true
+      show_my_tasks: true
+      template_work:         ep_nuke_shot_work
+      template_publish:      ep_nuke_shot_publish
+      template_work_area:    ep_shot_work_area_nuke
+      template_publish_area: ep_shot_publish_area_nuke
+      entities:
+      - caption: Episodes
+        entity_type: Episode
+        filters: []
+        hierarchy: [code]
+      - caption: Scenes
+        entity_type: Scene
+        filters: []
+        hierarchy: [sg_episode, code]
+      - caption: Shots
+        entity_type: Shot
+        filters: []
+        hierarchy: [sg_scene, code]
+        sub_hierarchy:
+          entity_type: Task
+          filters:
+          link_field: entity
+          hierarchy: [step]
+      location: "@apps.tk-multi-workfiles2.location"
+
+    tk-nuke-writenode:
+      template_script_work: ep_nuke_shot_work
+      write_nodes:
+      - file_type: exr
+        name: "Primary EXR (32-bit)"
+        proxy_publish_template:
+        proxy_render_template:
+        publish_template: ep_nuke_shot_render_pub
+        render_template:  ep_nuke_shot_render_work
+        settings:
+          datatype: 32 bit float
+        tank_type: Rendered Image
+        tile_color: []
+        promote_write_knobs: []
+      - file_type: exr
+        name: "Primary EXR (16-bit half)"
+        proxy_publish_template:
+        proxy_render_template:
+        publish_template: ep_nuke_shot_render_pub
+        render_template:  ep_nuke_shot_render_work
+        settings:
+          datatype: 16 bit half
+        tank_type: Rendered Image
+        tile_color: []
+        promote_write_knobs: []
+      location: "@apps.tk-nuke-writenode.location"
+
+    tk-nuke-quickreview:
+      location: "@apps.tk-nuke-quickreview.location"
+
+    tk-multi-shotgunpanel: "@settings.tk-multi-shotgunpanel.nuke"
+
+  menu_favourites:
+  - {app_instance: tk-multi-workfiles2, name: File Open...}
+  - {app_instance: tk-multi-snapshot,   name: Snapshot...}
+  - {app_instance: tk-multi-workfiles2, name: File Save...}
+  - {app_instance: tk-multi-publish2,   name: Publish...}
+  - {app_instance: tk-multi-breakdown2, name: Scene Breakdown...}
+
+  location: "@engines.tk-nuke.location"
