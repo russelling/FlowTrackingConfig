@@ -11,7 +11,7 @@ Colour pipeline (first open only):
     -> OCIOColorSpace  Camera log -> ACEScg   (update OCIO_CAMERA_INPUT)
        -> OCIOColorSpace  ACEScg -> AWG/Output
           -> OCIOFileTransform  per-shot CDL  (plates/301_010_010.cc)
-             -> OCIOFileTransform  show LUT   (colour/luts/show.cube)
+             -> OCIOFileTransform  show LUT   (color/luts/show.cube)
                 -> Viewer  viewerProcess=None
 
 OCIO config: ACES 1.3
@@ -135,8 +135,8 @@ class SceneOperation(HookClass):
         fields = self._fields(context)
 
         plate_path = self._safe_resolve(tk, "ep_shot_plates",   fields, "PLACEHOLDER/plates/plate.####.exr")
-        cdl_path   = self._safe_resolve(tk, "ep_shot_cdl",      fields, "PLACEHOLDER/plates/shot.cc")
-        lut_path   = self._safe_resolve(tk, "ep_shot_show_lut", fields, "PLACEHOLDER/colour/luts/show.cube")
+        cdl_path   = self._safe_resolve(tk, "ep_shot_cdl",      fields, "PLACEHOLDER/plates/shot.cdl")
+        lut_path   = self._safe_resolve(tk, "ep_shot_show_lut", fields, "color/luts/ARRILogC4_SEV_S3_V3_digital_R709.cube")
 
         plate_ok = os.path.exists(os.path.dirname(plate_path))
         cdl_ok   = os.path.exists(cdl_path)
@@ -219,7 +219,7 @@ class SceneOperation(HookClass):
         viewer.setXYpos(x, y)
 
         nuke.message(
-            "Colour pipeline loaded.\n\n"
+            "Color pipeline loaded.\n\n"
             "Working space: ACEScg\n\n"
             "Camera Plates : LogC4 → ACEScg on read\n  %s\n\n"
             "VFX Pulls : Replace path in VFX PULL Read\n  (raw read, already ACEScg)\n\n"
