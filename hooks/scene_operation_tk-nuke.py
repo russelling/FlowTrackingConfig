@@ -6,7 +6,7 @@ Auto-versioning: on 'new' and 'version_up', scans the work area for existing
 v### files and saves to the next available version.
 File naming: 301_010_010_comp_v003.nk
 
-Colour pipeline (first open only):
+color pipeline (first open only):
   Read (plates, raw)
     -> OCIOColorSpace  Camera log -> ACEScg   (update OCIO_CAMERA_INPUT)
        -> OCIOColorSpace  ACEScg -> AWG/Output
@@ -72,7 +72,7 @@ class SceneOperation(HookClass):
             nuke.scriptSaveAs(resolved, overwrite=0)
             engine.save_context_to_script()
             if self._is_first_version(context):
-                self._build_colour_template(context)
+                self._build_color_template(context)
                 nuke.scriptSave()
             return resolved
 
@@ -130,7 +130,7 @@ class SceneOperation(HookClass):
         if folder and not os.path.exists(folder):
             os.makedirs(folder)
 
-    def _build_colour_template(self, context):
+    def _build_color_template(self, context):
         tk     = self.parent.sgtk
         fields = self._fields(context)
 
@@ -196,7 +196,7 @@ class SceneOperation(HookClass):
         cdl["label"].setValue("Shot CDL\n[value file]")
         cdl.setXYpos(x, y)
         if not cdl_ok:
-            nuke.warning("[colour] CDL not found: %s" % cdl_path)
+            nuke.warning("[color] CDL not found: %s" % cdl_path)
 
         # ── Show LUT (LogC4 → Rec.709) ────────────────────────────────────
         y += 120
@@ -208,7 +208,7 @@ class SceneOperation(HookClass):
         lut["label"].setValue("Show LUT → Rec.709\n[value file]")
         lut.setXYpos(x, y)
         if not lut_ok:
-            nuke.warning("[colour] Show LUT not found: %s" % lut_path)
+            nuke.warning("[color] Show LUT not found: %s" % lut_path)
 
         # ── Viewer (display in Rec.709, working space ACEScg) ─────────────
         y += 120
