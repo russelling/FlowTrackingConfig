@@ -1,0 +1,26 @@
+# =============================================================================
+# episode_shot_step.yml
+# Loaded when Shot.sg_scene is populated (Project > Episode > Scene > Shot).
+# Returned by hooks/pick_environment.py.
+# =============================================================================
+
+description: "Episodic shot-step environment (Project > Episode > Scene > Shot)."
+
+includes:
+- ./includes/frameworks.yml
+- ./includes/settings/tk-desktop2.yml
+- ./includes/settings/tk-maya.yml
+- ./includes/settings/tk-nuke-episodic.yml
+- ./includes/settings/tk-aftereffects.yml
+- ./includes/settings/tk-shell.yml
+- ./includes/settings/tk-shotgun.yml
+
+engines:
+  tk-desktop2:     "@settings.tk-desktop2.all"
+  tk-maya:         "@settings.tk-maya.shot_step"
+  tk-nuke:         "@settings.tk-nuke.episodic.shot_step"
+  tk-aftereffects: "@settings.tk-aftereffects.shot_step"
+  tk-shell:        "@settings.tk-shell.shot_step"
+  tk-shotgun:      "@settings.tk-shotgun.shot_step"
+
+frameworks: "@frameworks"

@@ -1,0 +1,7 @@
+# Dynamic folder – one per Episode entity linked to this project.
+# Folder name comes from Episode.code (e.g. 301)
+type: "shotgun_entity"
+name: "code"
+entity_type: "Episode"
+filters:
+  - { "path": "project", "relation": "is", "values": [ "$project" ] }
