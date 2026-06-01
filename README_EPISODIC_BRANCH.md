@@ -38,7 +38,7 @@ Asset:   HeroCharacter_model_v001.ma
 | `core/schema/project/episode/scene/shot.yml` | Shot folder filtered by sg_scene |
 | `core/schema/project/episode/scene/shot/step.yml` | Pipeline step folder |
 | `hooks/pick_environment.py` | Routes Shot+Scene context to episode_shot_step |
-| `hooks/scene_operation_tk-nuke.py` | Auto-versioning + colour pipeline on first open |
+| `hooks/scene_operation_tk-nuke.py` | Auto-versioning + color pipeline on first open |
 | `env/episode_shot_step.yml` | New environment for episodic shot work |
 | `env/includes/settings/tk-nuke-episodic.yml` | Nuke engine config for episodic context |
 | `core/templates.yml` | ep_ path templates + Episode/Scene keys |
@@ -48,7 +48,7 @@ Asset:   HeroCharacter_model_v001.ma
 1. Add `sg_episode` entity link field on **Scene** (links Scene -> Episode)
 2. Add `sg_scene` entity link field on **Shot** (links Shot -> Scene)
 3. Set `OCIO_CAMERA_INPUT` in `hooks/scene_operation_tk-nuke.py` to your camera log space
-4. Drop show LUT into `colour/luts/` and replace `SHOW_LUT_NAME` in `core/templates.yml`
+4. Drop show LUT into `color/luts/` and replace `SHOW_LUT_NAME` in `core/templates.yml`
 5. Run `tank Episode 301 create_folders` to create directory structure on disk
 
 ## Pipeline steps
