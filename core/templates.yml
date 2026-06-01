@@ -88,6 +88,29 @@ keys:
     eye:
         type: str
 
+    # Episodic keys
+    Episode:
+        type: str
+    Scene:
+        type: str
+    nuke_extension:
+        type: str
+        choices:
+            nk: Nuke Script (.nk)
+            nknc: Nuke Non-Commercial (.nknc)
+    maya_extension:
+        type: str
+        choices:
+            ma: Maya ASCII (.ma)
+            mb: Maya Binary (.mb)
+    img_extension:
+        type: str
+        choices:
+            exr: OpenEXR (.exr)
+            png: PNG (.png)
+            jpg: JPEG (.jpg)
+            dpx: DPX (.dpx)
+
     houdini.node:
         alias: node
         type: str
@@ -184,6 +207,52 @@ paths:
     shot_root: sequences/{Sequence}/{Shot}/{Step}
     asset_root: assets/{sg_asset_type}/{Asset}/{Step}
     sequence_root: sequences/{Sequence}
+
+    #
+    # Episodic paths - Project > shots > Episode > Scene > Shot
+    #
+
+    # Root path for episodic shots
+    ep_shot_root:
+        definition: 'shots/{Episode}/{Scene}/{Shot}/{Step}'
+
+    # Nuke
+    ep_shot_work_area_nuke:
+        definition: '@ep_shot_root/work/nuke'
+    ep_nuke_shot_work:
+        definition: '@ep_shot_root/work/nuke/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{nuke_extension}'
+    ep_nuke_shot_snapshot:
+        definition: '@ep_shot_root/work/nuke/snapshots/{Episode}_{Scene}_{Shot}_{Step}_v{version}_{timestamp}.{nuke_extension}'
+    ep_shot_publish_area_nuke:
+        definition: '@ep_shot_root/publish/nuke'
+    ep_nuke_shot_publish:
+        definition: '@ep_shot_root/publish/nuke/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{nuke_extension}'
+
+    # Nuke renders
+    ep_nuke_shot_render_work:
+        definition: '@ep_shot_root/render/work/{Episode}_{Scene}_{Shot}_{Step}_v{version}/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{SEQ}.exr'
+    ep_nuke_shot_render_pub:
+        definition: '@ep_shot_root/render/pub/{Episode}_{Scene}_{Shot}_{Step}_v{version}/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{SEQ}.exr'
+
+    # Maya
+    ep_shot_work_area_maya:
+        definition: '@ep_shot_root/work/maya'
+    ep_maya_shot_work:
+        definition: '@ep_shot_root/work/maya/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{maya_extension}'
+    ep_maya_shot_snapshot:
+        definition: '@ep_shot_root/work/maya/snapshots/{Episode}_{Scene}_{Shot}_{Step}_v{version}_{timestamp}.{maya_extension}'
+    ep_shot_publish_area_maya:
+        definition: '@ep_shot_root/publish/maya'
+    ep_maya_shot_publish:
+        definition: '@ep_shot_root/publish/maya/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{maya_extension}'
+
+    # Plates and colour
+    ep_shot_plates:
+        definition: '@ep_shot_root/plates/{Episode}_{Scene}_{Shot}.####.exr'
+    ep_shot_cdl:
+        definition: 'shots/{Episode}/{Scene}/{Shot}/plates/{Episode}_{Scene}_{Shot}.cc'
+    ep_shot_show_lut:
+        definition: 'colour/luts/SHOW_LUT_NAME.cube'
 
 
     ##########################################################################################
