@@ -246,7 +246,7 @@ paths:
     ep_maya_shot_publish:
         definition: '@ep_shot_root/publish/maya/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{maya_extension}'
 
-    # Plates and colour
+    # Plates and color
     ep_shot_plates:
         definition: '@ep_shot_root/plates/{Episode}_{Scene}_{Shot}.####.exr'
     ep_shot_cdl:
