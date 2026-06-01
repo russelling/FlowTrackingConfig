@@ -252,7 +252,7 @@ paths:
     ep_shot_cdl:
         definition: 'shots/{Episode}/{Scene}/{Shot}/plates/{Episode}_{Scene}_{Shot}.cc'
     ep_shot_show_lut:
-        definition: 'colour/luts/SHOW_LUT_NAME.cube'
+        definition: 'color/luts/ARRILogC4_SEV_S3_V3_digital_R709.cube'
 
 
     ##########################################################################################
