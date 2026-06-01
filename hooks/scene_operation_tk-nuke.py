@@ -238,5 +238,5 @@ class SceneOperation(HookClass):
             needed = {k: fields[k] for k in tmpl.keys if k in fields}
             return tmpl.apply_fields(needed)
         except Exception as exc:
-            nuke.warning("[colour] Could not resolve '%s': %s" % (template_name, exc))
+            nuke.warning("[color] Could not resolve '%s': %s" % (template_name, exc))
             return fallback
