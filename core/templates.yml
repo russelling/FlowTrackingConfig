@@ -98,11 +98,13 @@ keys:
         choices:
             nk: Nuke Script (.nk)
             nknc: Nuke Non-Commercial (.nknc)
+        default: nk
     maya_extension:
         type: str
         choices:
             ma: Maya ASCII (.ma)
             mb: Maya Binary (.mb)
+        default: ma
     img_extension:
         type: str
         choices:
