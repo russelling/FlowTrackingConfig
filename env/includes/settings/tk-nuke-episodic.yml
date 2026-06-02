@@ -71,8 +71,8 @@ settings.tk-nuke.episodic.shot_step:
       show_my_tasks: true
       template_work:         ep_nuke_shot_work
       template_publish:      ep_nuke_shot_publish
-      template_work_area:    ep_shot_work_area_nuke
-      template_publish_area: ep_shot_publish_area_nuke
+      template_work_area:    shot_work_area_nuke
+      template_publish_area: shot_publish_area_nuke
       entities:
       - caption: Episodes
         entity_type: Episode

@@ -214,14 +214,10 @@ paths:
     # Named with ep_ prefix to match references in env/includes/settings/tk-nuke-episodic.yml
 
     # Nuke
-    ep_shot_work_area_nuke:
-        definition: '@shot_root/work/nuke'
-    ep_nuke_shot_work:
+
         definition: '@shot_root/work/nuke/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{nuke_extension}'
     ep_nuke_shot_snapshot:
         definition: '@shot_root/work/nuke/snapshots/{Episode}_{Scene}_{Shot}_{Step}_v{version}_{timestamp}.{nuke_extension}'
-    ep_shot_publish_area_nuke:
-        definition: '@shot_root/publish/nuke'
     ep_nuke_shot_publish:
         definition: '@shot_root/publish/nuke/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{nuke_extension}'
 
@@ -232,14 +228,10 @@ paths:
         definition: '@shot_root/render/pub/{Episode}_{Scene}_{Shot}_{Step}_v{version}/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{SEQ}.exr'
 
     # Maya
-    ep_shot_work_area_maya:
-        definition: '@shot_root/work/maya'
     ep_maya_shot_work:
         definition: '@shot_root/work/maya/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{maya_extension}'
     ep_maya_shot_snapshot:
         definition: '@shot_root/work/maya/snapshots/{Episode}_{Scene}_{Shot}_{Step}_v{version}_{timestamp}.{maya_extension}'
-    ep_shot_publish_area_maya:
-        definition: '@shot_root/publish/maya'
     ep_maya_shot_publish:
         definition: '@shot_root/publish/maya/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{maya_extension}'
 
