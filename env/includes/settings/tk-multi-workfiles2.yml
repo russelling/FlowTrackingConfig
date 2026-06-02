@@ -43,7 +43,7 @@ settings.tk-multi-workfiles2: &settings_tk-multi-workfiles2
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
@@ -67,7 +67,7 @@ settings.tk-multi-workfiles2.launch_at_startup:
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
@@ -104,7 +104,7 @@ settings.tk-multi-workfiles2.3dsmax.asset_step:
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
@@ -132,7 +132,7 @@ settings.tk-multi-workfiles2.3dsmax.shot_step:
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
@@ -176,7 +176,7 @@ settings.tk-multi-workfiles2.houdini:
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
@@ -201,7 +201,7 @@ settings.tk-multi-workfiles2.houdini.launch_at_startup:
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
@@ -229,7 +229,7 @@ settings.tk-multi-workfiles2.houdini.asset_step:
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
@@ -257,7 +257,7 @@ settings.tk-multi-workfiles2.houdini.shot_step:
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
@@ -289,7 +289,7 @@ settings.tk-multi-workfiles2.maya.asset_step:
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
@@ -316,7 +316,7 @@ settings.tk-multi-workfiles2.maya.shot_step:
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
@@ -347,7 +347,7 @@ settings.tk-multi-workfiles2.nuke.asset_step:
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
@@ -374,7 +374,7 @@ settings.tk-multi-workfiles2.nuke.shot_step:
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
@@ -405,7 +405,7 @@ settings.tk-multi-workfiles2.photoshop.asset_step:
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
@@ -432,7 +432,7 @@ settings.tk-multi-workfiles2.photoshop.shot_step:
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
@@ -459,7 +459,7 @@ settings.tk-multi-workfiles2.aftereffects:
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
@@ -487,7 +487,7 @@ settings.tk-multi-workfiles2.aftereffects.asset_step:
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
@@ -515,7 +515,7 @@ settings.tk-multi-workfiles2.aftereffects.shot_step:
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
@@ -546,7 +546,7 @@ settings.tk-multi-workfiles2.motionbuilder.asset_step:
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
@@ -572,7 +572,7 @@ settings.tk-multi-workfiles2.motionbuilder.shot_step:
   - caption: Shots
     entity_type: Shot
     filters:
-    hierarchy: [sg_sequence, code]
+    hierarchy: [sg_episode, sg_scene, code]
     sub_hierarchy:
       entity_type: Task
       filters:
