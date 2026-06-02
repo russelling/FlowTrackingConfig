@@ -30,3 +30,8 @@ path.windows.hiero: C:\Program Files\Nuke17.0v1\Nuke17.0.exe
 path.linux.rv: "rv"
 path.mac.rv: "/Applications/RV.app"
 path.windows.rv: C:\Program Files\Shotgun\RV-7.9.0\bin\rv.exe
+
+# Unreal Engine
+path.linux.unreal: "/opt/UnrealEngine/Engine/Binaries/Linux/UnrealEditor"
+path.mac.unreal: "/Users/Shared/Epic Games/UE_5.3/Engine/Binaries/Mac/UnrealEditor.app"
+path.windows.unreal: C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\Win64\UnrealEditor.exe

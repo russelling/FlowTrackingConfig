@@ -59,3 +59,13 @@ settings.tk-multi-launchapp.motionbuilder:
   windows_path: "@path.windows.motionbuilder"
   menu_name: MotionBuilder
   location: "@apps.tk-multi-launchapp.location"
+
+# unreal
+settings.tk-multi-launchapp.unreal:
+  engine: tk-unreal
+  icon: "{target_engine}/icon_256.png"
+  linux_path: "@path.linux.unreal"
+  mac_path: "@path.mac.unreal"
+  windows_path: "@path.windows.unreal"
+  menu_name: Unreal Engine
+  location: "@apps.tk-multi-launchapp.location"
