@@ -21,9 +21,9 @@
 
 ```
 Show (Project)
-  └─ Episode        code: EP101
-       └─ Scene     code: SC010  · linked to Episode via sg_episode
-            └─ Shot code: EP101_010  · linked to Scene via sg_scene
+  └─ Episode        code: 301
+       └─ Scene     code: 001  · linked to Episode via sg_episode
+            └─ Shot code: 301_001_010  · linked to Scene via sg_scene
                  └─ Task  · tied to Pipeline Step e.g. comp, temp
 ```
 
@@ -36,24 +36,24 @@ Every shot must be linked to a Scene for the episodic config to activate.
 
 ## On-disk folder structure
 
-Full example: Episode `EP101`, Scene `SC010`, Shot `EP101_010`.
+Full example: Episode `301`, Scene `001`, Shot `301_001_010`.
 
 ```
 shots/
-  EP101/                         ← Episode code
-    SC010/                       ← Scene code
-      EP101_010/                 ← Shot code
+  301/                         ← Episode code
+    001/                       ← Scene code
+      301_001_010/                 ← Shot code
         plates/                  ← source plates, shared across all steps
         render/                  ← all EXR render outputs, shared
         review/                  ← dailies / quicktime movies, shared
         reference/               ← reference material, shared
         temp/                    ← Pipeline Step folder
           nuke/
-            EP101_SC010_EP101_010_temp_v001.nk
+            301_001_010_temp_v001.nk
             snapshots/
         comp/                    ← Pipeline Step folder
           nuke/
-            EP101_SC010_EP101_010_comp_v001.nk
+            301_001_010_comp_v001.nk
             snapshots/
 ```
 
@@ -68,17 +68,19 @@ shots/
 
 ## File naming convention
 
-Pattern: `{Episode}_{Scene}_{Shot}_{Step}_v{version}.{ext}`
+Pattern: `{Shot}_{Step}_v{version}.{ext}`
+
+The Shot code (`301_001_010`) already contains the full `{Episode}_{Scene}_{shot_num}` composite, so filenames do not repeat the episode and scene separately.
 
 | Type | Example |
 |---|---|
-| Nuke script | `EP101_SC010_EP101_010_comp_v003.nk` |
-| Nuke snapshot | `EP101_SC010_EP101_010_comp_v003_20260601.nk` |
-| Maya scene | `EP101_SC010_EP101_010_comp_v001.ma` |
-| EXR render sequence | `EP101_SC010_EP101_010_comp_v003/EP101_SC010_EP101_010_comp_v003.0001.exr` |
-| Review quicktime | `EP101_SC010_EP101_010_comp_v003.mov` |
-| Plates sequence | `EP101_SC010_EP101_010_plate.0001.exr` |
-| CDL grade file | `EP101_SC010_EP101_010.cc` |
+| Nuke script | `301_001_010_comp_v003.nk` |
+| Nuke snapshot | `301_001_010_comp_v003_20260601.nk` |
+| Maya scene | `301_001_010_comp_v001.ma` |
+| EXR render sequence | `301_001_010_comp_v003/301_001_010_comp_v003.0001.exr` |
+| Review quicktime | `301_001_010_comp_v003.mov` |
+| Plates sequence | `301_001_010_plate.0001.exr` |
+| CDL grade file | `301_001_010.cc` |
 
 **Version padding:** 3 digits — `v001`  
 **Frame padding:** 4 digits — `0001`
@@ -139,9 +141,9 @@ All shots begin as `temp`. Once the cut is locked, selected shots are either fin
 
 | Key | Type | Example | Notes |
 |---|---|---|---|
-| `Episode` | str | `EP101` | ShotGrid Episode.code |
-| `Scene` | str | `SC010` | ShotGrid Scene.code |
-| `Shot` | str | `EP101_010` | ShotGrid Shot.code |
+| `Episode` | str | `301` | ShotGrid Episode.code |
+| `Scene` | str | `001` | ShotGrid Scene.code |
+| `Shot` | str | `301_001_010` | ShotGrid Shot.code |
 | `Step` | str | `comp` | Pipeline step short code |
 | `version` | int (pad 3) | `001` | Work and publish versions |
 | `SEQ` | sequence (pad 4) | `0001` | Frame sequences |
@@ -156,9 +158,9 @@ All shots begin as `temp`. Once the cut is locked, selected shots are either fin
 
 | Entity | Pattern | Examples |
 |---|---|---|
-| Episodes | Show prefix + 3-digit number | `EP101` `EP102` `EP201` |
-| Scenes | 2-letter prefix + 3-digit number | `SC010` `SC020` `SC030` |
-| Shots | Episode code + `_` + shot number (×10) | `EP101_010` `EP101_020` |
+| Episodes | Show prefix + 3-digit number | `301` `302` `303` |
+| Scenes | 2-letter prefix + 3-digit number | `001` `002` `003` |
+| Shots | Episode code + `_` + shot number (×10) | `301_001_010` `301_020` |
 | Assets | PascalCase | `HeroCharacter` `CityBlock_A` |
 | Asset types | Title case | `Character` `Prop` `Environment` `Vehicle` `FX` |
 
@@ -166,7 +168,7 @@ All shots begin as `temp`. Once the cut is locked, selected shots are either fin
 
 ## Review workflow
 
-Two tools are available in Nuke. Both write to `shots/EP101/SC010/EP101_010/review/` and create a ShotGrid Version.
+Two tools are available in Nuke. Both write to `shots/301/001/301_001_010/review/` and create a ShotGrid Version.
 
 | Tool | What it does |
 |---|---|
@@ -181,8 +183,8 @@ Write nodes (full EXR renders to `render/`) must be executed **manually** by the
 
 | File | Location | Template |
 |---|---|---|
-| Plate sequence | `shots/EP101/SC010/EP101_010/plates/EP101_SC010_EP101_010_plate.0001.exr` | `ep_shot_plates` |
-| CDL grade (.cc) | `shots/EP101/SC010/EP101_010/plates/EP101_SC010_EP101_010.cc` | `ep_shot_cdl` |
+| Plate sequence | `shots/301/001/301_001_010/plates/301_001_010_plate.0001.exr` | `ep_shot_plates` |
+| CDL grade (.cc) | `shots/301/001/301_001_010/plates/301_001_010.cc` | `ep_shot_cdl` |
 | Show LUT | `color/luts/ARRILogC4_SEV_S3_V3_digital_R709.cube` | `ep_shot_show_lut` |
 
 ---

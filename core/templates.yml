@@ -225,11 +225,11 @@ paths:
         definition: '@shot_root/nuke'
 
     ep_nuke_shot_work:
-        definition: '@shot_root/nuke/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{nuke_extension}'
+        definition: '@shot_root/nuke/{Shot}_{Step}_v{version}.{nuke_extension}'
     ep_nuke_shot_snapshot:
-        definition: '@shot_root/nuke/snapshots/{Episode}_{Scene}_{Shot}_{Step}_v{version}_{timestamp}.{nuke_extension}'
+        definition: '@shot_root/nuke/snapshots/{Shot}_{Step}_v{version}_{timestamp}.{nuke_extension}'
     ep_nuke_shot_publish:
-        definition: '@shot_root/nuke/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{nuke_extension}'
+        definition: '@shot_root/nuke/{Shot}_{Step}_v{version}.{nuke_extension}'
 
     # ── Maya ─────────────────────────────────────────────────────────────────
     shot_work_area_maya:
@@ -238,29 +238,29 @@ paths:
         definition: '@shot_root/maya'
 
     ep_maya_shot_work:
-        definition: '@shot_root/maya/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{maya_extension}'
+        definition: '@shot_root/maya/{Shot}_{Step}_v{version}.{maya_extension}'
     ep_maya_shot_snapshot:
-        definition: '@shot_root/maya/snapshots/{Episode}_{Scene}_{Shot}_{Step}_v{version}_{timestamp}.{maya_extension}'
+        definition: '@shot_root/maya/snapshots/{Shot}_{Step}_v{version}_{timestamp}.{maya_extension}'
     ep_maya_shot_publish:
-        definition: '@shot_root/maya/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{maya_extension}'
+        definition: '@shot_root/maya/{Shot}_{Step}_v{version}.{maya_extension}'
 
     # ── Renders (shot level, shared across steps) ─────────────────────────────
     ep_nuke_shot_render_work:
-        definition: '@shot_base/render/{Episode}_{Scene}_{Shot}_{Step}_v{version}/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{SEQ}.exr'
+        definition: '@shot_base/render/{Shot}_{Step}_v{version}/{Shot}_{Step}_v{version}.{SEQ}.exr'
     ep_nuke_shot_render_pub:
-        definition: '@shot_base/render/{Episode}_{Scene}_{Shot}_{Step}_v{version}/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{SEQ}.exr'
+        definition: '@shot_base/render/{Shot}_{Step}_v{version}/{Shot}_{Step}_v{version}.{SEQ}.exr'
 
     # ── Review / dailies (shot level, shared across steps) ───────────────────
     ep_nuke_shot_render_movie:
-        definition: '@shot_base/review/{Episode}_{Scene}_{Shot}_{Step}_v{version}.mov'
+        definition: '@shot_base/review/{Shot}_{Step}_v{version}.mov'
     shot_quicktime_quick:
-        definition: '@shot_base/review/{Episode}_{Scene}_{Shot}_{Step}_{iteration}.mov'
+        definition: '@shot_base/review/{Shot}_{Step}_{iteration}.mov'
 
     # ── Plates, CDL, LUT (shot level, shared across steps) ───────────────────
     ep_shot_plates:
-        definition: '@shot_base/plates/{Episode}_{Scene}_{Shot}.####.exr'
+        definition: '@shot_base/plates/{Shot}.####.exr'
     ep_shot_cdl:
-        definition: '@shot_base/plates/{Episode}_{Scene}_{Shot}.cc'
+        definition: '@shot_base/plates/{Shot}.cc'
     ep_shot_show_lut:
         definition: 'color/luts/ARRILogC4_SEV_S3_V3_digital_R709.cube'
 
