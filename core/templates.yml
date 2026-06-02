@@ -214,7 +214,7 @@ paths:
     # Named with ep_ prefix to match references in env/includes/settings/tk-nuke-episodic.yml
 
     # Nuke
-
+    ep_nuke_shot_work:
         definition: '@shot_root/work/nuke/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{nuke_extension}'
     ep_nuke_shot_snapshot:
         definition: '@shot_root/work/nuke/snapshots/{Episode}_{Scene}_{Shot}_{Step}_v{version}_{timestamp}.{nuke_extension}'
