@@ -29,6 +29,10 @@
 keys:
     Sequence:
         type: str
+    Episode:
+        type: str
+    Scene:
+        type: str
     Shot:
         type: str
     Step:
@@ -181,7 +185,9 @@ paths:
     #
     # These don't require the standard formatting (with definition and root_name) because they
     # will be set within each template that uses the alias.
-    shot_root: sequences/{Sequence}/{Shot}/{Step}
+    # Episodic hierarchy: shots/<Episode>/<Scene>/<Shot>/<Step>
+    # Folder names match core/schema/project/shots/episode/scene/shot/step
+    shot_root: shots/{Episode}/{Scene}/{Shot}/{Step}
     asset_root: assets/{sg_asset_type}/{Asset}/{Step}
     sequence_root: sequences/{Sequence}
 
@@ -420,6 +426,58 @@ paths:
         definition: '@shot_root/review/quickdaily/{Shot}_{name}_{iteration}.mov'
     nuke_shot_render_movie:
         definition: '@shot_root/review/{Shot}_{name}_{nuke.output}_v{version}.mov'
+
+    ##########################################################################################
+    # Episodic shot paths  (shots/{Episode}/{Scene}/{Shot}/{Step})
+    # All templates prefixed ep_ to distinguish from legacy sequence-based templates.
+    ##########################################################################################
+
+    # ep_shot_root: same hierarchy as shot_root, kept as a named alias for ep_ templates
+    ep_shot_root: shots/{Episode}/{Scene}/{Shot}/{Step}
+    ep_shot_work_area_nuke:
+        definition: '@ep_shot_root/work/nuke'
+    ep_shot_publish_area_nuke:
+        definition: '@ep_shot_root/publish/nuke'
+
+    ep_nuke_shot_work:
+        definition: '@ep_shot_root/work/nuke/{Episode}_{Scene}_{Shot}_{Step}_v{version}.nk'
+    ep_nuke_shot_snapshot:
+        definition: '@ep_shot_root/work/nuke/snapshots/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{timestamp}.nk'
+    ep_nuke_shot_publish:
+        definition: '@ep_shot_root/publish/nuke/{Episode}_{Scene}_{Shot}_{Step}_v{version}.nk'
+
+    # Render outputs – work and publish
+    ep_nuke_shot_render_work:
+        definition: '@ep_shot_root/work/images/{name}/v{version}/{Episode}_{Scene}_{Shot}_{Step}_{nuke.output}_v{version}.{SEQ}.exr'
+    ep_nuke_shot_render_pub:
+        definition: '@ep_shot_root/publish/elements/{name}/v{version}/{Episode}_{Scene}_{Shot}_{Step}_{nuke.output}_v{version}.{SEQ}.exr'
+
+    # Review / quicktime
+    ep_nuke_shot_render_movie:
+        definition: '@ep_shot_root/review/{Episode}_{Scene}_{Shot}_{Step}_{nuke.output}_v{version}.mov'
+
+    # ── Maya ──────────────────────────────────────────────────────────────────
+    ep_shot_work_area_maya:
+        definition: '@ep_shot_root/work/maya'
+    ep_shot_publish_area_maya:
+        definition: '@ep_shot_root/publish/maya'
+
+    ep_maya_shot_work:
+        definition: '@ep_shot_root/work/maya/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{maya_extension}'
+    ep_maya_shot_snapshot:
+        definition: '@ep_shot_root/work/maya/snapshots/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{timestamp}.{maya_extension}'
+    ep_maya_shot_publish:
+        definition: '@ep_shot_root/publish/maya/{Episode}_{Scene}_{Shot}_{Step}_v{version}.{maya_extension}'
+
+    # Alembic cache
+    ep_maya_shot_publish_alembic:
+        definition: '@ep_shot_root/publish/caches/{Episode}_{Scene}_{Shot}_{Step}_{name}_v{version}.abc'
+
+    # ── Renders (shared) ──────────────────────────────────────────────────────
+    ep_shot_render_work_area:
+        definition: '@ep_shot_root/work/images'
+    ep_shot_render_pub_area:
+        definition: '@ep_shot_root/publish/elements'
 
     #
     # Hiero
