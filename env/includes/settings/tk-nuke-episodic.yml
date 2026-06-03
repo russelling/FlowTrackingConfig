@@ -83,10 +83,12 @@ settings.tk-nuke.episodic.shot_step:
         entity_type: Scene
         filters: []
         hierarchy: [sg_episode, code]
+        fields: [sg_episode, code]
       - caption: Shots
         entity_type: Shot
         filters: []
         hierarchy: [sg_scene, code]
+        fields: [sg_scene, code]
         sub_hierarchy:
           entity_type: Task
           filters:
