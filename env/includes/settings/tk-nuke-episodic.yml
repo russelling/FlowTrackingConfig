@@ -14,6 +14,7 @@ includes:
 - ./tk-multi-publish2.yml
 - ./tk-multi-reviewsubmission.yml
 - ./tk-multi-snapshot.yml
+- ./tk-multi-shotgunpanel.yml
 
 settings.tk-nuke.episodic.shot_step:
   apps:
